@@ -1,12 +1,17 @@
 <script lang="ts">
-    import { onDestroy } from 'svelte';
-    import { todoStore } from "./stores";
-    import Todo from "./Todo.svelte";
-    import TodoPusher from "./TodoPusher.svelte";
-    let todoList = []
+    import { onDestroy } from 'svelte'; // For destroying active subscription
+    import { todoStore } from "./stores"; // Used for todos
+    import Todo from "./Todo.svelte"; // Display component
+    import TodoPusher from "./TodoPusher.svelte"; // Todo addition
+    
+    // Initial empty list filled after subscribing to todoStore
+    let todoList = [];
+    
+    // BEGIN Todo list "boilerplate"
     let todoListUnsub = todoStore.subscribe(val => todoList = val);
+    onDestroy(() => todoListUnsub());
+    // END Todo list "boilerplate"
 
-    onDestroy(() => todoListUnsub())
 </script>
 
 <main>

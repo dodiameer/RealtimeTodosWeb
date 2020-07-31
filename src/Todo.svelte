@@ -1,10 +1,16 @@
 <script lang="ts">
-import type { space } from "svelte/internal";
-
+    import { todoStore } from './stores.js';
     export let title: string;
     export let description: string;
     export let complete: boolean = false;
     export let index: number;
+
+    function deleteTodo() {
+        todoStore.update(list => {
+            list.splice(index,1);
+            return list;
+        });
+    }
 </script>
 
 <li class="todo">
@@ -15,7 +21,7 @@ import type { space } from "svelte/internal";
     
     <span>
         <span class="complete">{complete ? "✅" : "❌"}</span>
-        <button on:click={() => console.log("Delete", index)}>Delete</button>
+        <button on:click={deleteTodo}>Delete</button>
     </span>
 </li>
 
