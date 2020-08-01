@@ -1,0 +1,32 @@
+name: Build and deploy to Github Pages
+
+# Controls when the action will run. Triggers the workflow on push to master
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+  
+  # Build job
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - uses: actions/setup-node@v2.1.1
+      
+    - name: Install cleanly
+      run: npm ci
+
+    # Runs build command
+    - name: Build
+      run: npm build
+  
+  # Deploy job
+  deploy:
+    needs: [build]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Github Pages
+        uses: crazy-max/ghaction-github-pages@v2.1.1
+        with:
+          build_dir: public
