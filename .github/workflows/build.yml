@@ -29,6 +29,6 @@ jobs:
       - name: Github Pages
         uses: crazy-max/ghaction-github-pages@v2.1.1
         with:
-          build_dir: public/
+          build_dir: /public/
           target_branch: master
           jekyll: false
