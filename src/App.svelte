@@ -15,7 +15,7 @@
 </script>
 
 <main>
-    <h1>RealtimeTodos</h1>
+    <h1>Realtime Todos</h1>
     <ul>
 	{#each todoList as todo, idx}
         <Todo 
