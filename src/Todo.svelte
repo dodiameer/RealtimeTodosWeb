@@ -28,12 +28,16 @@
 <style>
     li {
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        padding: 1em;
+        background: #ffffff;
+        border-radius: 1em;
+        border: 1px solid #d3d3d3;
+        width: 100%;
     }
     .todo {
         display: flex;
         flex-direction: row;
         justify-content: space-between;
-        width: 20vw;
     }
     .text {
         display: flex;

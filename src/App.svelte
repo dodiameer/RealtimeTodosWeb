@@ -24,6 +24,8 @@
             complete={todo.complete}
             index={idx}
         />
+    {:else}
+    <h2>No tasks added. Add one below!</h2>
     {/each}
     </ul>
     <TodoPusher/>
@@ -34,4 +36,13 @@
 		font-size: 3em;
 		font-weight: 100;
 	}
+    ul {
+        padding: 0;
+    }
+    main {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
 </style>

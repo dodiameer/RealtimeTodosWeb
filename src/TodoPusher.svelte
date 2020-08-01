@@ -12,6 +12,18 @@
     }
 </script>
 
-<input type="text" bind:value={title}>
-<input type="text" bind:value={description}>
+<label for="Task title">
+    Task title:<br>
+    <input type="text" name="Task title" bind:value={title}>
+</label>
+<label for="Task description">
+    Task description<br>
+    <input type="text" name="Task description" bind:value={description}>
+</label>
 <button on:click={addData}>Add</button>
+
+<style>
+    input {
+        margin: 0.5em 0 1em 0;
+    }
+</style>
